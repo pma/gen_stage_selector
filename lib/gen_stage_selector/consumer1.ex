@@ -15,12 +15,10 @@ defmodule Consumer1 do
 
   def handle_events(events, _from, state) do
     for event <- events do
-      IO.inspect {self(), event}
+      IO.inspect {Consumer1, self(), event}
     end
     {:noreply, [], state}
   end
 
-  defp filter(e) do
-    is_integer(e) and rem(e, 2) == 0
-  end
+  defp filter(_), do: true
 end

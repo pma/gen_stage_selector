@@ -13,11 +13,12 @@ defmodule Consumer2 do
     {:consumer, :ok, subscribe_to: [{Broadcaster, selector: &filter/1}]}
   end
 
-  def handle_events(_events, _from, state) do
+  def handle_events(events, _from, state) do
+    for event <- events do
+      IO.inspect {Consumer2, self(), event}
+    end
     {:noreply, [], state}
   end
 
-  defp filter(_e) do
-    false
-  end
+  defp filter(_), do: false
 end
