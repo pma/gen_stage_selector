@@ -1,0 +1,1 @@
+%{"gen_stage": {:git, "https://github.com/elixir-lang/gen_stage.git", "7478eae51e3d04736b373c3b037621e5473184f7", []}}
